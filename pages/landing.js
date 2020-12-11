@@ -1,9 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import axios from "axios";
 // components
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import About from '../pages/about';
+import About from "../pages/about";
 export default function Landing() {
   const submit = (e) => {
     e.preventDefault();
@@ -12,50 +11,45 @@ export default function Landing() {
     obj.email = document.getElementById("email").value;
     obj.reason = document.getElementById("reason").value;
     obj.message = document.getElementById("message").value;
-    axios.post("http://localhost:5500/client/contact", obj).then((res) => {
-      console.log(res);
-    });
+    axios
+      .post("https://server-cunsulting.herokuapp.com/client/contact", obj)
+      .then((res) => {});
 
     e.preventDefault();
 
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
-    
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
     Toast.fire({
-      icon: 'success',
-      title: 'We recieved your message thank you '
-    })
+      icon: "success",
+      title: "We recieved your message thank you ",
+    });
   };
   return (
     <>
-      <IndexNavbar  />
+      <IndexNavbar />
       <main>
         <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-     
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
                 "url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')",
             }}
-          >
-              
-           
-          </div>
+          ></div>
           <div
             className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16"
             style={{ transform: "translateZ(0)" }}
           >
-           
             <svg
               className="absolute bottom-0 overflow-hidden"
               xmlns="http://www.w3.org/2000/svg"
@@ -70,21 +64,28 @@ export default function Landing() {
                 points="2560 0 2560 100 0 100"
               ></polygon>
             </svg>
-            
           </div>
         </div>
-       
+
         <section className="pb-20 bg-gray-300 -mt-24">
-        <About/>
+          <About />
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap">
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
-                <div id='transparent' className="relative flex flex-col min-w-0 break-words bg-white  w-full mb-8 shadow-lg rounded-lg">
+                <div
+                  id="transparent"
+                  className="relative flex flex-col min-w-0 break-words bg-white  w-full mb-8 shadow-lg rounded-lg"
+                >
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-black p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                       <i className="fas fa-award"></i>
                     </div>
-                    <h6 className="text-xl  font-semibold"style={{color:'#1B019B'}}>Our Agency</h6>
+                    <h6
+                      className="text-xl  font-semibold"
+                      style={{ color: "#1B019B" }}
+                    >
+                      Our Agency
+                    </h6>
                     <p className="mt-2 mb-4 text-grey-200">
                       IRADA Consulting is a leading consulting company founded
                       by a group of highly qualified multidisciplinary experts,
@@ -94,14 +95,19 @@ export default function Landing() {
                   </div>
                 </div>
               </div>
-             
+
               <div className="w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
                       <i className="fas fa-retweet"></i>
                     </div>
-                    <h6 className="text-xl font-semibold"style={{color:'#1B019B'}}>Preview</h6>
+                    <h6
+                      className="text-xl font-semibold"
+                      style={{ color: "#1B019B" }}
+                    >
+                      Preview
+                    </h6>
                     <p className="mt-2 mb-4 text-gray-600">
                       IRADA Consulting offers a range of services in the fields
                       of Environment, Industrial Safety, Energy and
@@ -120,7 +126,12 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
                       <i className="fas fa-fingerprint"></i>
                     </div>
-                    <h6 className="text-xl font-semibold" style={{color:'#1B019B'}}>Verified Company</h6>
+                    <h6
+                      className="text-xl font-semibold"
+                      style={{ color: "#1B019B" }}
+                    >
+                      Verified Company
+                    </h6>
                     <p className="mt-2 mb-4 text-gray-600">
                       Write a few lines about each one. A paragraph describing a
                       feature will be enough. Keep you user engaged!
@@ -135,16 +146,14 @@ export default function Landing() {
                 <div className="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
                   <i className="fas fa-user-friends text-xl"></i>
                 </div>
-                <h3 className="text-3xl mb-2 font-semibold leading-normal"style={{color:'#1B019B'}}>
+                <h3
+                  className="text-3xl mb-2 font-semibold leading-normal"
+                  style={{ color: "#1B019B" }}
+                >
                   Working with us is a pleasure
                 </h3>
-                <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
-                 
-                </p>
-                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700">
-                
-                </p>
-                
+                <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700"></p>
+                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700"></p>
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
@@ -169,23 +178,24 @@ export default function Landing() {
                     <h4 className="text-xl font-bold text-black">
                       welcome to IRADA consulting
                     </h4>
-                    
                   </blockquote>
                 </div>
               </div>
             </div>
           </div>
-
         </section>
 
         <section className="pt-20 pb-48">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center text-center mb-24">
               <div className="w-full lg:w-6/12 px-4">
-                <h2 className="text-4xl font-semibold"style={{color:'#1B019B'}}>Here are our heroes</h2>
-                <p className="text-lg leading-relaxed m-4 text-gray-600">
-                 
-                </p>
+                <h2
+                  className="text-4xl font-semibold"
+                  style={{ color: "#1B019B" }}
+                >
+                  Here are our heroes
+                </h2>
+                <p className="text-lg leading-relaxed m-4 text-gray-600"></p>
               </div>
             </div>
             <div className="flex flex-wrap">
@@ -247,23 +257,24 @@ export default function Landing() {
                 <div className="px-6">
                   <img
                     alt="..."
-                    src={"https://scontent.ftun4-1.fna.fbcdn.net/v/t1.0-9/118214625_337853037583319_1779048938222223605_o.jpg?_nc_cat=100&ccb=2&_nc_sid=09cbfe&_nc_ohc=Abz6nDoN8IUAX8xk5na&_nc_ht=scontent.ftun4-1.fna&oh=068e8f008d3c98a2aa3e784f1235a6ec&oe=5FE94693"}
+                    src={
+                      "https://scontent.ftun4-1.fna.fbcdn.net/v/t1.0-9/118214625_337853037583319_1779048938222223605_o.jpg?_nc_cat=100&ccb=2&_nc_sid=09cbfe&_nc_ohc=Abz6nDoN8IUAX8xk5na&_nc_ht=scontent.ftun4-1.fna&oh=068e8f008d3c98a2aa3e784f1235a6ec&oe=5FE94693"
+                    }
                     className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Nahedh Abbes</h5>
                     <p className="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                     Web Developer
+                      Web Developer
                     </p>
                     <div className="mt-6">
-                      
-                     <a  href="https://www.facebook.com/nahedh.abbes.5">
-                      <button
-                        className="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-facebook-f"></i>
-                      </button>
+                      <a href="https://www.facebook.com/nahedh.abbes.5">
+                        <button
+                          className="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                          type="button"
+                        >
+                          <i className="fab fa-facebook-f"></i>
+                        </button>
                       </a>
                     </div>
                   </div>
@@ -273,7 +284,9 @@ export default function Landing() {
                 <div className="px-6">
                   <img
                     alt="..."
-                    src={"https://scontent.ftun4-1.fna.fbcdn.net/v/t1.0-9/68958559_10162294546425038_2495917860639997952_n.jpg?_nc_cat=100&ccb=2&_nc_sid=09cbfe&_nc_ohc=5r9WGKKhUnoAX-d5f4U&_nc_ht=scontent.ftun4-1.fna&oh=494c031605b6d68e1ee1ed21a5e28959&oe=5FE79855"}
+                    src={
+                      "https://scontent.ftun4-1.fna.fbcdn.net/v/t1.0-9/68958559_10162294546425038_2495917860639997952_n.jpg?_nc_cat=100&ccb=2&_nc_sid=09cbfe&_nc_ohc=5r9WGKKhUnoAX-d5f4U&_nc_ht=scontent.ftun4-1.fna&oh=494c031605b6d68e1ee1ed21a5e28959&oe=5FE79855"
+                    }
                     className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
@@ -282,15 +295,14 @@ export default function Landing() {
                       Web Developer
                     </p>
                     <div className="mt-6">
-                     <a href='https://www.facebook.com/Issam.Ben.mansour'>
-                      <button
-                        className="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-facebook-f"></i>
-                      </button>
+                      <a href="https://www.facebook.com/Issam.Ben.mansour">
+                        <button
+                          className="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                          type="button"
+                        >
+                          <i className="fab fa-facebook-f"></i>
+                        </button>
                       </a>
-                     
                     </div>
                   </div>
                 </div>
@@ -337,9 +349,7 @@ export default function Landing() {
                 </p>
               </div>
             </div>
-           
           </div>
-         
         </section>
         <section className="relative block py-24 lg:pt-0 bg-gray-900">
           <div className="container mx-auto px-4">
@@ -432,7 +442,6 @@ export default function Landing() {
             </div>
           </div>
         </section>
-        
       </main>
     </>
   );
