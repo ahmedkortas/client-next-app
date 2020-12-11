@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { createPopper } from "@popperjs/core";
 // components
 import "../../node_modules/bootswatch/dist/slate/bootstrap.min.css";
-import "../../node_modules/bootswatch/dist/Cerulean/bootstrap.min.css";
+import "../../node_modules/bootswatch/dist/cerulean/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import cookie from "js-cookie";
@@ -62,7 +62,7 @@ export default function Navbar(props) {
                 Services
               </a>
             </li>
-            
+
             <li className="nav-item">
               <a className="nav-link" href="/mainRef">
                 Main Refrences
