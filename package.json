@@ -25,7 +25,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "bootswatch": "^4.5.3",
-    "chart.js": "2.9.3",
+    "chart.js": "2.9.4",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
     "heroku": "^7.47.4",
